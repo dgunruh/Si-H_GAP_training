@@ -1,0 +1,34 @@
+&CONTROL
+  dt = 30.D0,
+  prefix='SiSi',
+  pseudo_dir = './',
+  outdir = './'
+  wf_collect = .true.,
+  verbosity = 'high',
+  tprnfor = .true.,
+  tstress = .true.,
+/
+
+&SYSTEM
+  ibrav = 1, A = 20.0, nat = 2, ntyp = 1,
+  ecutwfc	= 42.D0,
+  degauss	= 0.05D0,
+  occupations	= "smearing",
+  smearing	= "marzari-vanderbilt",
+/
+
+&ELECTRONS
+  electron_maxstep = 200,
+  conv_thr = 1.D-8,
+  mixing_beta = 0.3D0,
+/
+
+ATOMIC_SPECIES
+Si  28.08  Si.pbe-hgh.UPF
+
+K_POINTS {automatic}
+2 2 2  0 0 0
+
+ATOMIC_POSITIONS (angstrom)
+Si 0.0000000000 0.0000000000 0.0000000000
+Si 0.9600000000 0.0000000000 0.0000000000

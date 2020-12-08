@@ -1,0 +1,7 @@
+1
+config_type=isolated_atom dft_energy=-102.42257194 dft_virial="0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0 0.0" pbc="T T T" Lattice="20.0 0.0 0.0 0.0 20.0 0.0 0.0 0.0 20.0" Properties=species:S:1:pos:R:3:Z:I:1:dft_force:R:3
+Si	0.0	0.0	0.0	14	0.0	0.0	0.0
+
+1
+config_type=isolated_atom dft_energy=-12.618154398 dft_virial="0.117524 0.0 0.0 0.0 0.117524 0.0 0.0 0.0 0.117524" pbc="T T T" Lattice="20.0 0.0 0.0 0.0 20.0 0.0 0.0 0.0 20.0" Properties=species:S:1:pos:R:3:Z:I:1:dft_force:R:3
+H	0.0	0.0	0.0	1	0.0	0.0	0.0

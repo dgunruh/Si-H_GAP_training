@@ -1,0 +1,69 @@
+<quip>
+  <Glue_params n_types="2">
+  <per_type_data atomic_num="14" type="1">
+    <!-- Si -->
+    <density num_points="2" density_y1="0.0" density_yn="0.0">
+      <point a="0.0" rho="0.0"/>
+      <point a="1.0" rho="1.0"/>
+    </density>
+    <potential_density num_points="2">
+      <point rho="0.0" E="0.0"/>
+      <point rho="1.0" E="0.0"/>
+    </potential_density>
+  </per_type_data>
+  <per_type_data atomic_num="1" type="2">
+    <!-- H -->
+    <density num_points="2" density_y1="0.0" density_yn="0.0">
+      <point a="0.0" rho="0.0"/>
+      <point a="1.0" rho="1.0"/>
+    </density>
+    <potential_density num_points="2">
+      <point rho="0.0" E="0.0"/>
+      <point rho="1.0" E="0.0"/>
+    </potential_density>
+  </per_type_data>
+  <per_pair_data type1="1" type2="1">
+    <!-- Si -->
+    <potential_pair num_points="26" y1="1.0e50" yn="0.0">
+      <point r=" 1.2" E="13.4896897268455"/>
+      <point r="1.33" E="6.35102226195354"/>
+      <point r="1.46" E="2.85261290997884"/>
+      <point r="1.59" E="1.17069139864555"/>
+      <point r="1.60" E="1.074447150725763"/>
+      <point r="1.62" E="0.906655292950206"/>
+      <point r="1.64" E="0.767927847060999"/>
+      <point r="1.66" E="0.653627486419334"/>
+      <point r="1.68" E="0.559116884386403"/>
+      <point r="1.70" E="0.479758714323394"/>
+      <point r="1.72" E="0.410915649591501"/>
+      <point r="1.74" E="0.348717279587451"/>
+      <point r="1.76" E="0.292360857850120"/>
+      <point r="1.78" E="0.241810553953918"/>
+      <point r="1.80" E="0.197030537473260"/>
+      <point r="1.82" E="0.157984977982556"/>
+      <point r="1.84" E="0.124638045056218"/>
+      <point r="1.85" E="0.11009036654669"/>
+      <point r="1.86" E="0.096940368680633"/>
+      <point r="1.88" E="0.074531168317590"/>
+      <point r="1.90" E="0.056738252904286"/>
+      <point r="1.98" E="0.0180148277318245"/>
+      <point r="2.11" E="0.00107543820001212"/>
+      <point r="2.24" E="5.0184779157859e-06"/>
+      <point r="2.37" E="8.33906077334409e-13"/>
+      <point r=" 2.5" E="0.00000000000000000"/>
+    </potential_pair>
+ </per_pair_data>
+  <per_pair_data type1="1" type2="2">
+    <!-- Si-H -->
+    <potential_pair num_points="...." y1="1.0e50" yn="0.0">
+      <!-- here is where you put your Si-H spline points, make sure last one is zero -->
+      </potential_pair>
+   </per_pair_data>
+  <per_pair_data type1="2" type2="2">
+    <!-- H-H -->
+    <potential_pair num_points="...." y1="1.0e50" yn="0.0">
+      <!-- here is where you put your H-H spline points, make sure last one is zero -->
+      </potential_pair>
+   </per_pair_data>
+</Glue_params>
+</quip>

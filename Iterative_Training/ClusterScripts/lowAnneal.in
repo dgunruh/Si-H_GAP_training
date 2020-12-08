@@ -1,0 +1,54 @@
+# ---------Initialize Simulation---------
+clear
+units 		metal
+dimension 	3
+boundary 	p p p   #p indicates that the boundary (x,y,z) is periodic  s is shrink-wrapped
+atom_style 	atomic
+atom_modify 	map array
+variable	seed equal $s
+variable	inputfile string $i
+variable	dump string $d
+variable	dumpSnap string ${ds}
+variable	vel_seed equal floor(random(0,100000,v_seed))
+variable	anneal_seed equal floor(random(0,100000,v_seed))
+
+# ------- Read in DFT structure --------
+read_data	${inputfile}
+
+mass		1 1.00784
+mass		2 28.0855
+
+#lattice 	diamond 5.43 orient x 1 0 0 orient y 0 1 0 orient z 0 0 1
+#region 		box block EDGE EDGE EDGE EDGE EDGE EDGE units lattice
+
+# ----------Define interatomic potential --------------
+pair_style 	quip
+pair_coeff 	* * ../GAP_fitting/potentials/GAP_glue_soap_round2/GAP_glue_soap_round2.xml "Potential xml_label=GAP_2020_11_12_-480_18_49_35_238" 1 14
+
+# ----------Modify neighbors -------------
+neighbor	0.3 bin
+neigh_modify	delay 10
+
+# ----------Dump xyz file with atoms and bonds -----------
+# Read with Ovito 
+dump		1 all atom 4000 ${dump}
+
+# ------- Initialize conditions ----------
+#set initial temperature of deposited a-Si to be 1600K, so that we avoid a large strain on the system
+#velocity  	mobileatoms create 300.0 ${vel_seed} mom yes rot yes dist gaussian  # mom and rot yes means net linear and angular momentum is zero
+timestep 	.001 #1 fs
+
+# ------- Display conditions each 1000 step
+thermo_style 	custom step temp pe ke etotal
+thermo 		100
+
+# --------Run simulation -------------
+#Perform annealing at 300K for 20 ps using the constant volume, variable pressure ensemble
+velocity	all create 300.0 ${vel_seed} mom yes rot yes dist gaussian
+fix		anneal all nvt temp 300.0 300.0 0.1
+run		20000
+unfix		anneal
+
+
+# --------- Dump xyz file with atoms of only the final state ------------
+write_dump	all atom ${dumpSnap}
